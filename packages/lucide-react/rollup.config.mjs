@@ -87,7 +87,7 @@ const configs = bundles
           preserveModules,
           preserveModulesRoot: 'src',
           globals: {
-            react: 'react',
+            react: 'React',
             'prop-types': 'PropTypes',
           },
         },

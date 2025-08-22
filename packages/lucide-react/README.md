@@ -47,6 +47,55 @@ yarn add lucide-react
 bun add lucide-react
 ```
 
+## CDN Usage (UMD)
+
+For quick prototyping or projects without build tools, you can use the UMD build via CDN:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const { Heart, Star, Settings } = LucideReact.icons;
+    const { createLucideIcon } = LucideReact;
+    
+    // Use icons directly
+    const heartIcon = React.createElement(Heart, { size: 24, color: 'red' });
+    ReactDOM.render(heartIcon, document.getElementById('root'));
+  </script>
+</body>
+</html>
+```
+
+### UMD Global Structure
+
+The UMD build exposes `LucideReact` globally with:
+
+- `LucideReact.icons` - Object containing all icon components (1600+ icons)
+- `LucideReact.createLucideIcon` - Function to create custom icons
+- `LucideReact.Icon` - Base Icon component
+
+### Custom Icon Creation
+
+```javascript
+const CustomIcon = LucideReact.createLucideIcon('CustomIcon', [
+  ['path', { d: 'M12 2L2 7v10c0 5.55 3.84 10 9 11 5.16-1 9-5.45 9-11V7l-10-5z' }]
+]);
+
+const customElement = React.createElement(CustomIcon, { 
+  size: 32, 
+  color: 'blue' 
+});
+```
+
+**Bundle Size:** ~817KB minified (includes all 1600+ icons)
+
 ## Documentation
 
 For full documentation, visit [lucide.dev](https://lucide.dev/guide/packages/lucide-react)
