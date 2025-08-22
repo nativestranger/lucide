@@ -49,6 +49,10 @@
     "test": "pnpm build:icons && vitest run",
     "test:watch": "vitest watch",
     "test:umd": "open tests/umd-test.html",
+    "build:paths": "node scripts/buildPathsUmd.js",
+    "build:paths:core": "node scripts/buildPathsUmd.js scripts/core-icons.json",
+    "build:icons:json": "node scripts/buildIconJsons.js",
+    "build:umd:complete": "pnpm build:paths:core && pnpm build:icons:json",
     "version": "pnpm version --git-tag-version=false"
   },
   "devDependencies": {

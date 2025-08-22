@@ -1,0 +1,19 @@
+[
+  "zap", "rocket", "heart", "star", "house", "user", "settings", "search",
+  "mail", "phone", "calendar", "clock", "download", "upload", "check",
+  "x", "plus", "minus", "arrow-left", "arrow-right", "arrow-up", "arrow-down",
+  "chevron-left", "chevron-right", "chevron-up", "chevron-down",
+  "menu", "more-horizontal", "more-vertical", "edit", "trash", "copy",
+  "external-link", "eye", "eye-off", "lock", "unlock", "info", "alert-circle",
+  "file", "folder", "image", "video", "music", "bookmark", "tag", "share",
+  "bell", "message-circle", "thumbs-up", "thumbs-down", "flag", "filter",
+  "sort-asc", "sort-desc", "grid-3x3", "list", "map-pin", "navigation",
+  "refresh-cw", "rotate-ccw", "maximize", "minimize", "volume-2", "wifi",
+  "database", "server", "code", "terminal", "git-branch", "github", "play",
+  "pause", "stop", "skip-forward", "skip-back", "save", "loader", "spinner",
+  "alert-triangle", "help-circle", "shield", "key", "users", "user-plus",
+  "user-minus", "user-check", "credit-card", "dollar-sign", "shopping-cart",
+  "package", "truck", "home", "building", "store", "globe", "link", "unlink",
+  "paperclip", "scissors", "clipboard", "printer", "scan", "qr-code",
+  "bar-chart", "pie-chart", "trending-up", "trending-down", "activity"
+]

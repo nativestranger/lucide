@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Lucide Paths UMD</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 20px; }
+        .status { margin-bottom: 30px; padding: 15px; background: #f0f9ff; border-radius: 8px; }
+        .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; }
+        .icon-item { 
+            display: flex; flex-direction: column; align-items: center; padding: 15px; 
+            border: 1px solid #e5e7eb; border-radius: 8px; background: white;
+        }
+        .icon-item:hover { background: #f9fafb; }
+        .icon-name { margin-top: 8px; font-size: 12px; color: #6b7280; text-align: center; }
+        svg { stroke: #374151; }
+    </style>
+</head>
+<body>
+    <h1>🎨 Lucide Paths UMD Test</h1>
+    <div id="status" class="status"></div>
+    <div id="icon-grid" class="icon-grid"></div>
+    
+    <script src="dist/umd/lucide-paths.min.js"></script>
+    <script>
+        const statusDiv = document.getElementById('status');
+        const gridDiv = document.getElementById('icon-grid');
+        
+        if (typeof window.LucidePaths !== 'undefined') {
+            const iconCount = Object.keys(window.LucidePaths).length;
+            
+            statusDiv.innerHTML = `
+                <p>✅ <strong>window.LucidePaths</strong> loaded successfully</p>
+                <p>📊 <strong>${iconCount} icons</strong> available</p>
+                <p>🎯 Bundle size: ~${Math.round(JSON.stringify(window.LucidePaths).length / 1024)}KB</p>
+            `;
+            
+            // Create icon grid
+            Object.entries(window.LucidePaths).forEach(([name, paths]) => {
+                const iconItem = document.createElement('div');
+                iconItem.className = 'icon-item';
+                
+                const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svg.setAttribute('width', '24');
+                svg.setAttribute('height', '24');
+                svg.setAttribute('viewBox', '0 0 24 24');
+                svg.setAttribute('fill', 'none');
+                svg.setAttribute('stroke-width', '1.5');
+                svg.setAttribute('stroke-linecap', 'round');
+                svg.setAttribute('stroke-linejoin', 'round');
+                
+                paths.forEach(pathData => {
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    path.setAttribute('d', pathData);
+                    svg.appendChild(path);
+                });
+                
+                const nameDiv = document.createElement('div');
+                nameDiv.className = 'icon-name';
+                nameDiv.textContent = name;
+                
+                iconItem.appendChild(svg);
+                iconItem.appendChild(nameDiv);
+                gridDiv.appendChild(iconItem);
+            });
+        } else {
+            statusDiv.innerHTML = '<p>❌ window.LucidePaths not found</p>';
+        }
+    </script>
+</body>
+</html>
